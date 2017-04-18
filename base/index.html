@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Основа &ndash; Pure</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Использование Normalize.css, как HTML5-альтернативы сброса CSS-стилей">
+<link rel="shortcut icon" href="http://i.imgur.com/t2flrXU.png">
+<link rel="stylesheet" href="http://static.tumblr.com/8v23bro/sahn1njis/pure.css">
+<style type="text/css">
+.adv{
+	margin: 1.3em 0 1em;
+	padding: 1.3em;
+	font-size: 75%;
+	letter-spacing: 1px;
+	border: 1px solid #eee;
+	color: #999;
+	background: #fafafa;
+}
+
+.adv a{
+	color:#555;
+	text-decoration: none;
+}
+</style>
+
+<!-- SAPE RTB JS -->
+<script
+    async="async"
+    src="//cdn-rtb.sape.ru/rtb-b/js/050/2/21050.js"
+    type="text/javascript">
+</script>
+<!-- SAPE RTB END -->
+
+</head>
+<body onLoad="app()">
+
+	<div class="pure-g-r" id="layout">
+		<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+
+<section class="pure-u" id="menu">
+	<nav class="pure-menu pure-menu-open">
+		<a class="pure-menu-heading" href="/">Pure<br><small>по-русски</small></a>
+		<ul>
+			<li class="pure-menu-selected"><a href="/base/">Основа</a></li>
+			<li><a href="/grids/">Сетки</a></li>
+			<li><a href="/forms/">Формы</a></li>
+			<li><a href="/buttons/">Кнопки</a></li>
+			<li><a href="/tables/">Таблицы</a></li>
+			<li><a href="/menus/">Меню</a></li>
+			<li class="menu-item-divided"><a href="/layouts/">Макеты</a></li>
+			<li><a href="/customize/">Выборочные настройки</a></li>
+			<li><a href="/extend/">Модификации</a></li>
+			<li><a href="http://blog.purecss.io/">Блог проекта Pure</a></li>
+			<li><a href="https://github.com/yui/pure/releases/">Релизы Pure</a></li>
+			<li class="menu-item-divided"><a href="http://yui.github.io/skinbuilder/?mode=pure">Генератор тем для Pure</a></li>
+		</ul>
+	</nav>
+</section>
+
+
+		<div class="pure-u-1" id="main">
+
+<header class="header">
+	<h1>Основа</h1>
+	<h2>Использование Normalize.css, как HTML5-альтернативы сброса CSS-стилей</h2>
+</header>
+
+
+<div class="content">
+	<h2 id="the-foundation" class="content-subhead">The Foundation<a href="#the-foundation" class="content-link"></a></h2>
+	<p>
+		Все модули Pure построены на основе <a href="http://necolas.github.com/normalize.css/">Normalize.css</a>. Это основополагающий слой, сохраняющий согласованность стилей и кросбраузерность. В Pure используется Normalize v1.x, так как он поддерживает старые версии Internet Explorer. Normalize.css можно использовать и отдельно без остальных модулей Pure, используя наш CDN. Для этого, добавьте элемент <code>&lt;link&gt;</code> на страницу:
+	</p>
+
+	<pre class="snippet" data-language="html"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;http://yui.yahooapis.com/pure/0.4.2/base-min.css&quot;&gt;</code></pre>
+
+	<h3>Немного о Normalize.css</h3>
+	<p>
+		<a href="http://necolas.github.com/normalize.css/">Normalize.css</a> это совместный open-source проект <a href="http://twitter.com/necolas">Николя Галлахера (Nicolas Gallagher)</a> и <a href="http://twitter.com/jon_neal">Джонатана Нила (Jonathan Neal)</a>. <a href="http://nicolasgallagher.com/about-normalize-css/">По их собственным словам</a>:
+	</p>
+
+	<blockquote class="content-quote">
+		Normalize.css это небольшой файл CSS, который обеспечивает лучшую кросс-браузерность для стилей HTML-элементов по умолчанию. Это современная, HTML5-адаптированная, альтернатива традиционному сбросу стилей CSS.
+	</blockquote>
+
+	<p>
+		Normalize.css идёт с <a href="https://github.com/necolas/normalize.css/wiki">большим количеством документации</a> и a <a href="http://nicolasgallagher.com/about-normalize-css/">подробным руководством</a>, объясняющим, чем он отличается от традиционного сброса CSS-стилей. Вы также можете проверить модуль YUI's <a href="http://yuilibrary.com/yui/docs/cssnormalize/">CSSNormalize</a>, который включает общую версию Normalize и <a href="http://yuilibrary.com/yui/docs/cssnormalize/#context">контекстную версию</a>. Контекстная версия Normalize, применяет "нормализованные" стили к элементам, которые являются потомками элемента с именем класса <code>yui3-normalized</code>.
+	</p>
+
+	<h2 id="typography" class="content-subhead">Типографика<a href="#typography" class="content-link"></a></h2>
+	<p>
+		Чтобы сохранить максимальную способность к расширению, в Pure не добавляется никаких тпографических стилей, кроме тех, которые были определены в Normalize.css. Это означает, что вы получаете заголовки разного размера, цитаты, списки, списки определений, и многое другое с минимальными стилями, которые легко переопределить.
+	</p>
+	
+	
+	<p>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- universal-middle-big -->
+		<ins class="adsbygoogle"
+			style="display:inline-block;width:580px;height:400px"
+			data-ad-client="ca-pub-5176284087999478"
+			data-ad-slot="5649918142"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</p>
+
+
+	<h2 id="headings" class="content-subhead">Заголовки<a href="#headings" class="content-link"></a></h2>
+	<p>
+		Заголовки от <code>h1</code> до <code>h6</code> уменьшаются в размерах. Размеры шрифтов определены в <code>em</code>.
+	</p>
+
+	<h1>Заголовок 1</h1>
+	<h2>Заголовок 2</h2>
+	<h3>Заголовок 3</h3>
+	<h4>Заголовок 4</h4>
+	<h5>Заголовок 5</h5>
+	<h6>Заголовок 6</h6>
+
+
+	<h2 id="lists" class="content-subhead">Списки<a href="#lists" class="content-link"></a></h2>
+	<p>
+		Существуют разные типы списков. Это <strong>маркированные списки</strong>, <strong>нумерованные списки</strong> и <strong>списки определений</strong>. <strong>Normalize</strong> задаёт базовые стили и кросс-браузерные последовательности для всех типов списков. Если просто списки вас не интересуют, а вы хотите использовать их для создания меню на сайте, перейдите в раздел <a href="/menus/">Меню</a>.
+	</p>
+
+	<div class="pure-g-r">
+	<div class="pure-u-1-3">
+		<h4>Маркированный список</h4>
+
+		<ul>
+			<li>Элементсписка 1</li>
+			<li>Элемент списка 1
+				<ul>
+					<li>Элемент списка 2</li>
+					<li>Элемент списка 2
+						<ul>
+							<li>Элемент списка 3</li>
+							<li>Элемент списка 3</li>
+						</ul>
+					</li>
+					<li>Элемент списка 2</li>
+					<li>Элемент списка 2</li>
+				</ul>
+			</li>
+			<li>Элемент списка 1</li>
+			<li>Элемент списка 1</li>
+		</ul>
+	</div>
+
+	<div class="pure-u-1-3">
+		<h3>Нумерованный список</h3>
+
+		<ol>
+			<li>Элемент списка 1</li>
+			<li>Элемент списка 1
+				<ol>
+					<li>Элемент списка 2</li>
+					<li>Элемент списка 2
+						<ol>
+							<li>Элемент списка 3</li>
+							<li>Элемент списка 3</li>
+						</ol>
+					</li>
+					<li>Элемент списка 2</li>
+					<li>Элемент списка 2</li>
+				</ol>
+			</li>
+			<li>Элемент списка 1</li>
+			<li>Элемент списка 1</li>
+		</ol>
+	</div>
+
+	<div class="pure-u-1-3">
+		<h3>Списки определений</h3>
+
+		<dl>
+			<dt>Термин</dt>
+			<dd>Определение термина</dd>
+
+			<dt>Термин</dt>
+			<dd>Определение термина</dd>
+			<dd>Определение термина</dd>
+
+			<dt>Термин</dt>
+			<dt>Термин</dt>
+			<dd>Определение термина</dd>
+		</dl>
+	</div>
+</div>
+
+
+
+	<h2 id="blockquotes" class="content-subhead">Цитаты<a href="#blockquotes" class="content-link"></a></h2>
+	<p>
+		Цитаты охватывают текст, который предназначен для представления целого предложения или высказывания. По умолчанию цитаты выглядят, как обычный текст с отступом. Это дает вам свободу, чтобы устанавливать свои собственные CSS-стили к цитатам. Пример по умолчанию:
+	</p>
+
+	<blockquote>
+		Один маленький шаг для человека, но гигантский скачок для всего человечества.
+	</blockquote>
+
+
+	<pre class="snippet" data-language="html"><code>&lt;blockquote&gt;
+	Один маленький шаг для человека, но гигантский скачок для всего человечества.
+&lt;/blockquote&gt;</code></pre>
+
+	<p>
+		Воспользовавшись отсутствием стилей по умолчанию, цитаты на этом сайте имеют собственные CSS-стили, и заметно отличаются от тех, что по умолчанию. Рекомендуется задавать свои стили в контексте дизайна вашего сайта.
+	</p>
+
+	<blockquote class="content-quote">
+		Один маленький шаг для человека, но гигантский скачок для всего человечества.
+	</blockquote>
+
+
+	<h2 id="abbreviations" class="content-subhead">Сокращения (аббревиатура)<a href="#abbreviations" class="content-link"></a></h2>
+	<p>
+		<code>&lt;abbr&gt;</code> представляет собой аббревиатуру. Если атрибут <code>title</code> присутствует, то полное название будет отображаться при наведении. Сокращения, как правило, подчёркиваются небольшой пунктиром.
+	</p>
+
+	<p>
+		<abbr title="Yahoo User Interface">YUI</abbr> является свободным проектом на JavaScript с открытым исходным кодом и библиотекой CSS-стилей для создания полноценных интерактивных веб-приложений.
+	</p>
+
+
+	<pre class="snippet" data-language="html"><code>&lt;p&gt;
+	&lt;abbr title=&quot;Yahoo User Interface&quot;&gt;YUI&lt;/abbr&gt; является свободным проектом на JavaScript с открытым исходным кодом и библиотекой CSS-стилей для создания полноценных интерактивных веб-приложений.
+&lt;/p&gt;</code></pre>
+
+
+	<h2 id="addresses" class="content-subhead">Адреса<a href="#addresses" class="content-link"></a></h2>
+	<p>
+		<code>&lt;address&gt;</code> используется для отображения контактной информации. По умолчанию, адреса не имеют какого-либо специфического стиля отображения. Однако, они могут быть стилизованы разнообразными встроенными стилями, доступными через Normalize.
+	</p>
+
+	<address>
+		<a href="https://github.com/tilomitra">Tilo Mitra</a><br>
+		<a href="https://github.com/ericf">Eric Ferraiuolo</a><br>
+		<a href="https://github.com/msweeney">Matt Sweeney</a><br>
+		<a href="https://github.com/jconniff">Jeff Conniff</a><br>
+	</address>
+
+
+	<pre class="snippet" data-language="html"><code>&lt;address&gt;
+	&lt;a href=&quot;https://github.com/tilomitra&quot;&gt;Tilo Mitra&lt;/a&gt;&lt;br&gt;
+	&lt;a href=&quot;https://github.com/ericf&quot;&gt;Eric Ferraiuolo&lt;/a&gt;&lt;br&gt;
+	&lt;a href=&quot;https://github.com/msweeney&quot;&gt;Matt Sweeney&lt;/a&gt;&lt;br&gt;
+	&lt;a href=&quot;https://github.com/jconniff&quot;&gt;Jeff Conniff&lt;/a&gt;&lt;br&gt;
+&lt;/address&gt;</code></pre>
+
+
+	<h2 id="inline-styles" class="content-subhead">Встроенные стили<a href="#inline-styles" class="content-link"></a></h2>
+	<p>
+		Существует множество встроенных стилей, которые можно использовать. Небольшой их список приведён в <a href="http://github.com/necolas/normalize.css">документации Normalize</a>:
+	</p>
+
+	<div class="pure-g-r">
+	<div class="pure-u-1-2">
+		<div class="l-box">
+			<p>
+				Пример элемента <cite>cite</cite><br>
+				Пример элемента <code>code</code><br>
+				Пример элемента <del>del</del><br>
+				Пример элементов <dfn>dfn</dfn> и <dfn title="Title text">dfn с аттрибутом title</dfn><br>
+				Пример элемента <em>em</em><br>
+				Пример элемента <i>i</i><br>
+				Пример элемента img <img src="http://lorempixel.com/24/24" alt=""><br>
+				Пример элемента <ins>ins</ins><br>
+				Пример элемента <kbd>kbd</kbd><br>
+				Пример элемента <mark>mark</mark>
+			</p>
+		</div>
+	</div>
+
+	<div class="pure-u-1-2">
+		<div class="l-box">
+			<p>
+				Пример элемента <q>q <q>внутри</q> элемента q</q><br>
+				Пример элемента <s>s</s><br>
+				Пример элемента <samp>samp</samp><br>
+				Пример элемента <small>small</small><br>
+				Пример элемента <span>span</span><br>
+				Пример элемента <strong>strong</strong><br>
+				Пример элемента <sub>sub</sub><br>
+				Пример элемента <sup>sup</sup><br>
+				Пример элемента <u>u</u><br>
+				Пример элемента <var>var</var>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+	<h2 id="moving-beyond-normalize" class="content-subhead">Возможность расширения Normalize<a href="#moving-beyond-normalize" class="content-link"></a></h2>
+	<p>
+		Normalize.css является отличной отправной точкой для дизайна вашего проекта, но некоторые HTML-элементы, такие как формы, таблицы и меню требуют больше стилей, чем даёт Normalize.
+	</p>
+
+	<p>
+		В Pure заданы свои собственные стили для этих элементов с сохранением минимального размера и возможности самостоятельной настройки для своего сайта или требований приложений. Ознакомьтесь с CSS для <a href="/forms/">Форм</a>, <a href="/tables/">Таблиц</a> и <a href="/menus/">Меню</a>.
+	</p>
+</div>
+
+<div class="content">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Pure-bottom -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5176284087999478"
+		data-ad-slot="3659884947"
+		data-ad-format="auto"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+
+<footer class="legal pure-g-r">
+	<section class="pure-u-2-5">
+		<section class="l-box">
+			<p class="legal-license">
+				Сайт создан с использованием Pure v0.4.2<br>
+				Весь код на этом сайте распространяется под лицензией <a href="http://yuilibrary.com/license/">BSD License</a>, если не указано иное.
+			</p>
+		</section>
+	</section>
+
+	<section class="pure-u-1-5">
+		<section class="l-box legal-logo">
+			<a href="http://yuilibrary.com/">
+				<img src="http://i.imgur.com/XQ8mrUH.png" height="30" width="65" alt="YUI logo">
+			</a>
+		</section>
+	</section>
+
+	<section class="pure-u-2-5">
+		<section class="l-box">
+			<ul class="legal-links">
+				<li><a href="https://github.com/yui/pure/">GitHub Project</a></li>
+			</ul>
+
+			<p class="legal-copyright">
+				&copy; 2014 <a href="/">Pure-css.ru</a>
+			</p>
+		</section>
+	</section>
+</footer>
+
+
+		</div>
+	</div>
+
+<!-- SAPE RTB DIV 240x400 -->
+<div id="SRTB_52832"></div>
+<!-- SAPE RTB END -->
+
+<script src="http://static.tumblr.com/wqzcm1o/dT9n0kkkl/pure.js"></script>
+
+<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter23924128 = new Ya.Metrika({id:23924128, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/23924128" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73037308-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Формы &ndash; Pure</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Простой CSS для HTML-форм">
+<link rel="shortcut icon" href="http://i.imgur.com/t2flrXU.png">
+<link rel="stylesheet" href="http://static.tumblr.com/8v23bro/sahn1njis/pure.css">
+<style type="text/css">
+.adv{
+	margin: 1.3em 0 1em;
+	padding: 1.3em;
+	font-size: 75%;
+	letter-spacing: 1px;
+	border: 1px solid #eee;
+	color: #999;
+	background: #fafafa;
+}
+
+.adv a{
+	color:#555;
+	text-decoration: none;
+}
+</style>
+
+<!-- SAPE RTB JS -->
+<script
+    async="async"
+    src="//cdn-rtb.sape.ru/rtb-b/js/050/2/21050.js"
+    type="text/javascript">
+</script>
+<!-- SAPE RTB END -->
+
+</head>
+<body onLoad="app()">
+
+	<div class="pure-g-r" id="layout">
+		<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+
+<section class="pure-u" id="menu">
+	<nav class="pure-menu pure-menu-open">
+		<a class="pure-menu-heading" href="/">Pure<br><small>по-русски</small></a>
+		<ul>
+			<li><a href="/base/">Основа</a></li>
+			<li><a href="/grids/">Сетки</a></li>
+			<li class="pure-menu-selected"><a href="/forms/">Формы</a></li>
+			<li><a href="/buttons/">Кнопки</a></li>
+			<li><a href="/tables/">Таблицы</a></li>
+			<li><a href="/menus/">Меню</a></li>
+			<li class="menu-item-divided"><a href="/layouts/">Макеты</a></li>
+			<li><a href="/customize/">Выборочные настройки</a></li>
+			<li><a href="/extend/">Модификации</a></li>
+			<li><a href="http://blog.purecss.io/">Блог проекта Pure</a></li>
+			<li><a href="https://github.com/yui/pure/releases/">Релизы Pure</a></li>
+			<li class="menu-item-divided"><a href="http://yui.github.io/skinbuilder/?mode=pure">Генератор тем для Pure</a></li>
+		</ul>
+	</nav>
+</section>
+
+
+		<div class="pure-u-1" id="main">
+
+<header class="header">
+	<h1>Формы</h1>
+	<h2>Простой CSS для HTML-форм</h2>
+</header>
+
+
+<div class="content">
+
+	<h2 id="default-form" class="content-subhead">Форма по умолчанию<a href="#default-form" class="content-link"></a></h2>
+	<p>
+		Чтобы создать простую встроенную форму, добавьте класс <code>pure-form</code> к элементу <code>&lt;form&gt;</code>.
+	</p>
+
+  
+	<form class="pure-form">
+	<fieldset>
+		<legend>Компактная встроенная форма</legend>
+
+		<input type="email" placeholder="Email">
+		<input type="password" placeholder="Пароль">
+
+		<label for="default-remember">
+			<input id="default-remember" type="checkbox"> Запомнить меня
+		</label>
+
+		<button type="submit" class="pure-button pure-button-primary">Войти</button>
+	</fieldset>
+</form>
+
+  
+
+  <pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form&quot;&gt;
+	&lt;fieldset&gt;
+		&lt;legend&gt;Компактная встроенная форма&lt;/legend&gt;
+
+		&lt;input type=&quot;email&quot; placeholder=&quot;Email&quot;&gt;
+		&lt;input type=&quot;password&quot; placeholder=&quot;Пароль&quot;&gt;
+
+		&lt;label for=&quot;remember&quot;&gt;
+			&lt;input id=&quot;remember&quot; type=&quot;checkbox&quot;&gt; Запомнить меня
+		&lt;/label&gt;
+
+		&lt;button type=&quot;submit&quot; class=&quot;pure-button pure-button-primary&quot;&gt;Войти&lt;/button&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+
+
+	<h2 id="stacked-form" class="content-subhead">Формуляр<a href="#stacked-form" class="content-link"></a></h2>
+	<p>
+		Чтобы создать формуляр с полями и связными заголовками, добавьте класс <code>pure-form-stacked</code> к элементу <code>&lt;form&gt;</code> после имени класса <code>pure-form</code>.
+	</p>
+
+  
+	<form class="pure-form pure-form-stacked">
+	<fieldset>
+		<legend>Формуляр</legend>
+
+		<label for="stacked-email">Email</label>
+		<input id="stacked-email" type="email" placeholder="Email">
+
+		<label for="stacked-password">Пароль</label>
+		<input id="stacked-password" type="password" placeholder="Пароль">
+
+		<label for="stacked-state">Государство</label>
+		<select id="stacked-state">
+			<option>AL</option>
+			<option>CA</option>
+			<option>IL</option>
+		</select>
+
+		<label for="stacked-remember" class="pure-checkbox">
+			<input id="stacked-remember" type="checkbox"> Запомнить меня
+		</label>
+
+		<button type="submit" class="pure-button pure-button-primary">Войти</button>
+	</fieldset>
+</form>
+
+  
+
+  <pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form pure-form-stacked&quot;&gt;
+	&lt;fieldset&gt;
+		&lt;legend&gt;Формуляр&lt;/legend&gt;
+
+		&lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+		&lt;input id=&quot;email&quot; type=&quot;email&quot; placeholder=&quot;Email&quot;&gt;
+
+		&lt;label for=&quot;password&quot;&gt;Пароль&lt;/label&gt;
+		&lt;input id=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;Пароль&quot;&gt;
+
+		&lt;label for=&quot;state&quot;&gt;Государство&lt;/label&gt;
+		&lt;select id=&quot;state&quot;&gt;
+			&lt;option&gt;AL&lt;/option&gt;
+			&lt;option&gt;CA&lt;/option&gt;
+			&lt;option&gt;IL&lt;/option&gt;
+		&lt;/select&gt;
+
+		&lt;label for=&quot;remember&quot; class=&quot;pure-checkbox&quot;&gt;
+			&lt;input id=&quot;remember&quot; type=&quot;checkbox&quot;&gt; Запомнить меня
+		&lt;/label&gt;
+
+		&lt;button type=&quot;submit&quot; class=&quot;pure-button pure-button-primary&quot;&gt;Войти&lt;/button&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+
+
+	<h2 id="aligned-form" class="content-subhead">Унифицированные формы<a href="#aligned-form" class="content-link"></a></h2>
+	<p>
+		Чтобы создать унифицированную форму, добавьте имя класса <code>pure-form-aligned</code> для элемента <code>&lt;form&gt;</code> после имени класса <code>pure-form</code>. В унифицированных формах, назания полей выравниваются по правому краю напротив полей форм, но на небольших экранах будут отображаться в формате <a href="#stacked-form">формуляра</a>.
+	</p>
+
+  
+	<form class="pure-form pure-form-aligned">
+	<fieldset>
+		<div class="pure-control-group">
+			<label for="aligned-name">Логин</label>
+			<input id="aligned-name" type="text" placeholder="Логин">
+		</div>
+
+		<div class="pure-control-group">
+			<label for="aligned-password">Пароль</label>
+			<input id="aligned-password" type="password" placeholder="Пароль">
+		</div>
+
+		<div class="pure-control-group">
+			<label for="aligned-email">Email-адрес</label>
+			<input id="aligned-email" type="email" placeholder="Email-адрес">
+		</div>
+
+		<div class="pure-control-group">
+			<label for="aligned-foo">Ваш заголовок</label>
+			<input id="aligned-foo" type="text" placeholder="Введите свой тект здесь...">
+		</div>
+
+		<div class="pure-controls">
+			<label for="aligned-cb" class="pure-checkbox">
+				<input id="aligned-cb" type="checkbox"> Я прочитал условия предоставления услуг и согласен с ними
+			</label>
+
+			<button type="submit" class="pure-button pure-button-primary">Подтверждаю</button>
+		</div>
+	</fieldset>
+</form>
+
+  
+
+  <pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form pure-form-aligned&quot;&gt;
+	&lt;fieldset&gt;
+		&lt;div class=&quot;pure-control-group&quot;&gt;
+			&lt;label for=&quot;name&quot;&gt;Логин&lt;/label&gt;
+			&lt;input id=&quot;name&quot; type=&quot;text&quot; placeholder=&quot;Логин&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;pure-control-group&quot;&gt;
+			&lt;label for=&quot;password&quot;&gt;Пароль&lt;/label&gt;
+			&lt;input id=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;Пароль&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;pure-control-group&quot;&gt;
+			&lt;label for=&quot;email&quot;&gt;Email-адрес&lt;/label&gt;
+			&lt;input id=&quot;email&quot; type=&quot;email&quot; placeholder=&quot;Email-адрес&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;pure-control-group&quot;&gt;
+			&lt;label for=&quot;foo&quot;&gt;Ваш заголовок&lt;/label&gt;
+			&lt;input id=&quot;foo&quot; type=&quot;text&quot; placeholder=&quot;Введите свой тект здесь...&quot;&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;pure-controls&quot;&gt;
+			&lt;label for=&quot;cb&quot; class=&quot;pure-checkbox&quot;&gt;
+				&lt;input id=&quot;cb&quot; type=&quot;checkbox&quot;&gt; Я прочитал условия предоставления услуг и согласен с ними
+			&lt;/label&gt;
+
+			&lt;button type=&quot;submit&quot; class=&quot;pure-button pure-button-primary&quot;&gt;Подтверждаю&lt;/button&gt;
+		&lt;/div&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+
+	<p>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- universal-middle-big -->
+		<ins class="adsbygoogle"
+			style="display:inline-block;width:580px;height:400px"
+			data-ad-client="ca-pub-5176284087999478"
+			data-ad-slot="5649918142"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</p>
+
+	<h2 id="multi-column-form-with-pure-grids" class="content-subhead">Многоколоночная форма (с Pure Grids)<a href="#multi-column-form-with-pure-grids" class="content-link"></a></h2>
+	<p>
+		Чтобы создать многоколоночную форму, вставьте элементы вашей формы в ячейки <a href="/grids/">Pure Grid</a>. Следующий пример использует Pure Grids с формуляром.
+	</p>
+
+  
+	<form class="pure-form pure-form-stacked">
+	<fieldset>
+		<legend>Описание</legend>
+
+		<div class="pure-g-r">
+			<div class="pure-u-1-3">
+				<label for="multi-first-name">Имя</label>
+				<input id="multi-first-name" type="text">
+			</div>
+
+			<div class="pure-u-1-3">
+				<label for="multi-last-name">Фамилия</label>
+				<input id="multi-last-name" type="text">
+			</div>
+
+			<div class="pure-u-1-3">
+				<label for="multi-email">Email</label>
+				<input id="multi-email" type="email" required>
+			</div>
+
+			<div class="pure-u-1-3">
+				<label for="multi-city">Город</label>
+				<input id="multi-city" type="text">
+			</div>
+
+			<div class="pure-u-1-3">
+				<label for="multi-state">Страна</label>
+				<select id="multi-state" class="pure-input-1-2">
+					<option>AL</option>
+					<option>CA</option>
+					<option>IL</option>
+				</select>
+			</div>
+		</div>
+
+		<label for="multi-terms" class="pure-checkbox">
+			<input id="multi-terms" type="checkbox"> Я прочитал условия предоставления услуг и согласен с ними
+		</label>
+
+		<button type="submit" class="pure-button pure-button-primary">Подтверждаю</button>
+	</fieldset>
+</form>
+
+  
+
+  <pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form pure-form-stacked&quot;&gt;
+	&lt;fieldset&gt;
+		&lt;legend&gt;Описание&lt;/legend&gt;
+
+		&lt;div class=&quot;pure-g-r&quot;&gt;
+			&lt;div class=&quot;pure-u-1-3&quot;&gt;
+				&lt;label for=&quot;first-name&quot;&gt;Имя&lt;/label&gt;
+				&lt;input id=&quot;first-name&quot; type=&quot;text&quot;&gt;
+			&lt;/div&gt;
+
+			&lt;div class=&quot;pure-u-1-3&quot;&gt;
+				&lt;label for=&quot;last-name&quot;&gt;Фамилия&lt;/label&gt;
+				&lt;input id=&quot;last-name&quot; type=&quot;text&quot;&gt;
+			&lt;/div&gt;
+
+			&lt;div class=&quot;pure-u-1-3&quot;&gt;
+				&lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+				&lt;input id=&quot;email&quot; type=&quot;email&quot; required&gt;
+			&lt;/div&gt;
+
+			&lt;div class=&quot;pure-u-1-3&quot;&gt;
+				&lt;label for=&quot;city&quot;&gt;Город&lt;/label&gt;
+				&lt;input id=&quot;city&quot; type=&quot;text&quot;&gt;
+			&lt;/div&gt;
+
+			&lt;div class=&quot;pure-u-1-3&quot;&gt;
+				&lt;label for=&quot;state&quot;&gt;Страна&lt;/label&gt;
+				&lt;select id=&quot;state&quot; class=&quot;pure-input-1-2&quot;&gt;
+					&lt;option&gt;AL&lt;/option&gt;
+					&lt;option&gt;CA&lt;/option&gt;
+					&lt;option&gt;IL&lt;/option&gt;
+				&lt;/select&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;label for=&quot;terms&quot; class=&quot;pure-checkbox&quot;&gt;
+			&lt;input id=&quot;terms&quot; type=&quot;checkbox&quot;&gt; Я прочитал условия предоставления услуг и согласен с ними
+		&lt;/label&gt;
+
+		&lt;button type=&quot;submit&quot; class=&quot;pure-button pure-button-primary&quot;&gt;Подтверждаю&lt;/button&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+
+	<h2 id="grouped-inputs" class="content-subhead">Группировка полей форм<a href="#grouped-inputs" class="content-link"></a></h2>
+	<p>
+		Для группировки полей ввода текстовой нформации, поместите их внутрь элемента <code>&lt;fieldset&gt;</code> с классом <code>pure-group</code>. Группировка полей ввода хорошо подходит для форм регистрации пользователей и выглядеть естественно на экранах мобильных устройств.
+	</p>
+
+  
+	<form class="pure-form">
+	<fieldset class="pure-group">
+		<input type="text" class="pure-input-1-2" placeholder="Логин">
+		<input type="text" class="pure-input-1-2" placeholder="Пароль">
+		<input type="email" class="pure-input-1-2" placeholder="Email">
+	</fieldset>
+
+	<fieldset class="pure-group">
+		<input type="text" class="pure-input-1-2" placeholder="Другая группа">
+		<input type="text" class="pure-input-1-2" placeholder="Прочее">
+	</fieldset>
+
+	<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Войти</button>
+</form>
+
+  
+
+  <pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form&quot;&gt;
+	&lt;fieldset class=&quot;pure-group&quot;&gt;
+		&lt;input type=&quot;text&quot; class=&quot;pure-input-1-2&quot; placeholder=&quot;Логин&quot;&gt;
+		&lt;input type=&quot;text&quot; class=&quot;pure-input-1-2&quot; placeholder=&quot;Пароль&quot;&gt;
+		&lt;input type=&quot;email&quot; class=&quot;pure-input-1-2&quot; placeholder=&quot;Email&quot;&gt;
+	&lt;/fieldset&gt;
+
+	&lt;fieldset class=&quot;pure-group&quot;&gt;
+		&lt;input type=&quot;text&quot; class=&quot;pure-input-1-2&quot; placeholder=&quot;Другая группа&quot;&gt;
+		&lt;input type=&quot;text&quot; class=&quot;pure-input-1-2&quot; placeholder=&quot;Прочее&quot;&gt;
+	&lt;/fieldset&gt;
+
+	&lt;button type=&quot;submit&quot; class=&quot;pure-button pure-input-1-2 pure-button-primary&quot;&gt;Войи&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+
+	<h2 id="input-sizing" class="content-subhead">Изменение размеров полей ввода<a href="#input-sizing" class="content-link"></a></h2>
+	<p>
+		Элементы полей ввода <code>input</code> имеютсвойства и поведение, схожее с <a href="/grids/">Pure Grids</a>. Вы можете применять классы <code>pure-input-*</code> для этих элементов.
+	</p>
+
+  
+	<form class="pure-form">
+	<input class="pure-input-1" type="text" placeholder=".pure-input-1"><br>
+	<input class="pure-input-2-3" type="text" placeholder=".pure-input-2-3"><br>
+	<input class="pure-input-1-2" type="text" placeholder=".pure-input-1-2"><br>
+	<input class="pure-input-1-3" type="text" placeholder=".pure-input-1-3"><br>
+	<input class="pure-input-1-4" type="text" placeholder=".pure-input-1-4"><br>
+ </form>
+
+  
+
+  <pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form&quot;&gt;
+	&lt;input class=&quot;pure-input-1&quot; type=&quot;text&quot; placeholder=&quot;.pure-input-1&quot;&gt;&lt;br&gt;
+	&lt;input class=&quot;pure-input-2-3&quot; type=&quot;text&quot; placeholder=&quot;.pure-input-2-3&quot;&gt;&lt;br&gt;
+	&lt;input class=&quot;pure-input-1-2&quot; type=&quot;text&quot; placeholder=&quot;.pure-input-1-2&quot;&gt;&lt;br&gt;
+	&lt;input class=&quot;pure-input-1-3&quot; type=&quot;text&quot; placeholder=&quot;.pure-input-1-3&quot;&gt;&lt;br&gt;
+	&lt;input class=&quot;pure-input-1-4&quot; type=&quot;text&quot; placeholder=&quot;.pure-input-1-4&quot;&gt;&lt;br&gt;
+ &lt;/form&gt;</code></pre>
+
+	<p>
+		Вы также можете изменять размер полей ввода в большую сторону, поместив их в контейнер с классом сетки. В приведенном ниже примере, элемент <code>&lt;input&gt;</code>, имеет класс <code>pure-input-1</code>, но обернут в <code>&lt;div&gt;</code> с классом ячейки сетки.
+	</p>
+
+  
+	<form class="pure-form pure-g">
+	<div class="pure-u-1-4">
+		<input class="pure-input-1" type="text" placeholder=".pure-u-1-4">
+	</div>
+	<div class="pure-u-3-4">
+		<input class="pure-input-1" type="text" placeholder=".pure-u-3-4">
+	</div>
+
+	<div class="pure-u-1-2">
+		<input class="pure-input-1" type="text" placeholder=".pure-u-1-2">
+	</div>
+	<div class="pure-u-1-2">
+		<input class="pure-input-1" type="text" placeholder=".pure-u-1-2">
+	</div>
+
+	<div class="pure-u-1-8">
+		<input class="pure-input-1" type="text" placeholder=".pure-u-1-8">
+	</div>
+	<div class="pure-u-1-8">
+		<input class="pure-input-1" type="text" placeholder=".pure-u-1-8">
+	</div>
+	<div class="pure-u-1-4">
+		<input class="pure-input-1" type="text" placeholder=".pure-u-1-4">
+	</div>
+	<div class="pure-u-1-2">
+		<input class="pure-input-1" type="text" placeholder=".pure-u-1-2">
+	</div>
+
+	<div class="pure-u-1-5">
+		<input class="pure-input-1" type="text" placeholder=".pure-u-1-5">
+	</div>
+	<div class="pure-u-2-5">
+		<input class="pure-input-1" type="text" placeholder=".pure-u-2-5">
+	</div>
+	<div class="pure-u-2-5">
+		<input class="pure-input-1" type="text" placeholder=".pure-u-2-5">
+	</div>
+
+	<div class="pure-u-1">
+		<input class="pure-input-1" type="text" placeholder=".pure-u-1">
+	</div>
+</form>
+
+  
+
+  <pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form pure-g&quot;&gt;
+	&lt;div class=&quot;pure-u-1-4&quot;&gt;
+		&lt;input class=&quot;pure-input-1&quot; type=&quot;text&quot; placeholder=&quot;.pure-u-1-4&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;pure-u-3-4&quot;&gt;
+		&lt;input class=&quot;pure-input-1&quot; type=&quot;text&quot; placeholder=&quot;.pure-u-3-4&quot;&gt;
+	&lt;/div&gt;
+
+	&lt;div class=&quot;pure-u-1-2&quot;&gt;
+		&lt;input class=&quot;pure-input-1&quot; type=&quot;text&quot; placeholder=&quot;.pure-u-1-2&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;pure-u-1-2&quot;&gt;
+		&lt;input class=&quot;pure-input-1&quot; type=&quot;text&quot; placeholder=&quot;.pure-u-1-2&quot;&gt;
+	&lt;/div&gt;
+
+	&lt;div class=&quot;pure-u-1-8&quot;&gt;
+		&lt;input class=&quot;pure-input-1&quot; type=&quot;text&quot; placeholder=&quot;.pure-u-1-8&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;pure-u-1-8&quot;&gt;
+		&lt;input class=&quot;pure-input-1&quot; type=&quot;text&quot; placeholder=&quot;.pure-u-1-8&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;pure-u-1-4&quot;&gt;
+		&lt;input class=&quot;pure-input-1&quot; type=&quot;text&quot; placeholder=&quot;.pure-u-1-4&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;pure-u-1-2&quot;&gt;
+		&lt;input class=&quot;pure-input-1&quot; type=&quot;text&quot; placeholder=&quot;.pure-u-1-2&quot;&gt;
+	&lt;/div&gt;
+
+	&lt;div class=&quot;pure-u-1-5&quot;&gt;
+		&lt;input class=&quot;pure-input-1&quot; type=&quot;text&quot; placeholder=&quot;.pure-u-1-5&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;pure-u-2-5&quot;&gt;
+		&lt;input class=&quot;pure-input-1&quot; type=&quot;text&quot; placeholder=&quot;.pure-u-2-5&quot;&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;pure-u-2-5&quot;&gt;
+		&lt;input class=&quot;pure-input-1&quot; type=&quot;text&quot; placeholder=&quot;.pure-u-2-5&quot;&gt;
+	&lt;/div&gt;
+
+	&lt;div class=&quot;pure-u-1&quot;&gt;
+		&lt;input class=&quot;pure-input-1&quot; type=&quot;text&quot; placeholder=&quot;.pure-u-1&quot;&gt;
+	&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+
+
+	<h2 id="required-inputs" class="content-subhead">Обязательные поля ввода<a href="#required-inputs" class="content-link"></a></h2>
+	<p>
+		Чтобы пометить элемент формы, как обязательныйк заполнению, добавьте атрибут <code>required</code> к элементу <code>input</code>.
+		To mark a form control as required, add the <code>required</code> attribute.
+	</p>
+
+  
+	<form class="pure-form">
+	<input type="email" placeholder="Требуется Email" required>
+</form>
+
+  
+
+  <pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form&quot;&gt;
+	&lt;input type=&quot;email&quot; placeholder=&quot;Требуется Email&quot; required&gt;
+&lt;/form&gt;</code></pre>
+
+
+	<h2 id="disabled-inputs" class="content-subhead">Неактивные поля ввода<a href="#disabled-inputs" class="content-link"></a></h2>
+	<p>
+		Чтобы сделать поле ввода неактивным, добавьте атрибут <code>disabled</code> к элементу <code>input</code>.
+	</p>
+
+  
+	<form class="pure-form">
+	<input type="text" placeholder="Неактивное поле" disabled>
+</form>
+
+  
+
+  <pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form&quot;&gt;
+	&lt;input type=&quot;text&quot; placeholder=&quot;Неактивное поле&quot; disabled&gt;
+&lt;/form&gt;</code></pre>
+
+
+	<h2 id="read-only-inputs" class="content-subhead">Нередактируемое поле ввода<a href="#read-only-inputs" class="content-link"></a></h2>
+	<p>
+		Чтобы сделать форму ввода нередактируемой, добавьте атрибут <code>readonly</code> к элементу <code>input</code>. Разница между атрибутами <code>disabled</code> и <code>readonly</code> в том, что с нередактируемым полем пользователь может взаимодействовать, утанавлиявая фокус и копируя текст, в то время, как неактивное поле ведёт себя словно картинка.
+	</p>
+
+  
+	<form class="pure-form">
+	<input type="text" value="Нередактируемое поле" readonly>
+</form>
+
+  
+
+  <pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form&quot;&gt;
+	&lt;input type=&quot;text&quot; value=&quot;Нередактируемое поле&quot; readonly&gt;
+&lt;/form&gt;</code></pre>
+
+
+	<h2 id="rounded-inputs" class="content-subhead">Поля ввода со скруглённымиуглами<a href="#rounded-inputs" class="content-link"></a></h2>
+	<p>
+		Для создания поля формы с закругленными углами, добавьте к элементу поля класс <code>pure-input-rounded</code>.
+	</p>
+
+  
+	<form class="pure-form">
+	<input type="text" class="pure-input-rounded">
+	<button type="submit" class="pure-button">Поиск</button>
+</form>
+
+  
+
+  <pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form&quot;&gt;
+	&lt;input type=&quot;text&quot; class=&quot;pure-input-rounded&quot;&gt;
+	&lt;button type=&quot;submit&quot; class=&quot;pure-button&quot;&gt;Поиск&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+
+	<h2 id="checkboxes-and-radios" class="content-subhead">Поля выбора значения <code>checkbox</code> и <code>radio</code><a href="#checkboxes-and-radios" class="content-link"></a></h2>
+	<p>
+		Для нормализации размеров и выравнивания элементов <code>checkbox</code> и <code>radio</code>, добавьте соответствующим полям имена классов <code>pure-checkbox</code> или <code>pure-radio</code>.
+	</p>
+
+  
+	<form class="pure-form">
+	<label for="checkbox-radio-option-one" class="pure-checkbox">
+		<input id="checkbox-radio-option-one" type="checkbox" value="">
+		Вот первый вариант.
+	</label>
+
+	<label for="checkbox-radio-option-two" class="pure-radio">
+		<input id="checkbox-radio-option-two" type="radio" name="optionsRadios" value="option1" checked>
+		Вот переключатель. Вы можете выбрать этот...
+	</label>
+
+	<label for="checkbox-radio-option-three" class="pure-radio">
+		<input id="checkbox-radio-option-three" type="radio" name="optionsRadios" value="option2">
+		Или этот!
+	</label>
+</form>
+
+  
+
+  <pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form&quot;&gt;
+	&lt;label for=&quot;option-one&quot; class=&quot;pure-checkbox&quot;&gt;
+		&lt;input id=&quot;option-one&quot; type=&quot;checkbox&quot; value=&quot;&quot;&gt;
+		Вот первый вариант.
+	&lt;/label&gt;
+
+	&lt;label for=&quot;option-two&quot; class=&quot;pure-radio&quot;&gt;
+		&lt;input id=&quot;option-two&quot; type=&quot;radio&quot; name=&quot;optionsRadios&quot; value=&quot;option1&quot; checked&gt;
+		Вот переключатель. Вы можете выбрать этот...
+	&lt;/label&gt;
+
+	&lt;label for=&quot;option-three&quot; class=&quot;pure-radio&quot;&gt;
+		&lt;input id=&quot;option-three&quot; type=&quot;radio&quot; name=&quot;optionsRadios&quot; value=&quot;option2&quot;&gt;
+		Или этот!
+	&lt;/label&gt;
+&lt;/form&gt;</code></pre>
+</div>
+
+<div class="content">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Pure-bottom -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5176284087999478"
+		data-ad-slot="3659884947"
+		data-ad-format="auto"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+
+<footer class="legal pure-g-r">
+	<section class="pure-u-2-5">
+		<section class="l-box">
+			<p class="legal-license">
+				Сайт создан с использованием Pure v0.4.2<br>
+				Весь код на этом сайте распространяется под лицензией <a href="http://yuilibrary.com/license/">BSD License</a>, если не указано иное.
+			</p>
+		</section>
+	</section>
+
+	<section class="pure-u-1-5">
+		<section class="l-box legal-logo">
+			<a href="http://yuilibrary.com/">
+				<img src="http://i.imgur.com/XQ8mrUH.png" height="30" width="65" alt="YUI logo">
+			</a>
+		</section>
+	</section>
+
+	<section class="pure-u-2-5">
+		<section class="l-box">
+			<ul class="legal-links">
+				<li><a href="https://github.com/yui/pure/">GitHub Project</a></li>
+			</ul>
+
+			<p class="legal-copyright">
+				&copy; 2014 <a href="/">Pure-css.ru</a>
+			</p>
+		</section>
+	</section>
+</footer>
+
+
+		</div>
+	</div>
+
+<!-- SAPE RTB DIV 240x400 -->
+<div id="SRTB_52832"></div>
+<!-- SAPE RTB END -->
+
+<script src="http://static.tumblr.com/wqzcm1o/dT9n0kkkl/pure.js"></script>
+
+<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter23924128 = new Ya.Metrika({id:23924128, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/23924128" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73037308-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Сетки &ndash; Pure</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Полностью настраиваемые и отзывчивые CSS-сетки">
+<link rel="shortcut icon" href="http://i.imgur.com/t2flrXU.png">
+<link rel="stylesheet" href="http://static.tumblr.com/8v23bro/sahn1njis/pure.css">
+<style type="text/css">
+.adv{
+	margin: 1.3em 0 1em;
+	padding: 1.3em;
+	font-size: 75%;
+	letter-spacing: 1px;
+	border: 1px solid #eee;
+	color: #999;
+	background: #fafafa;
+}
+
+.adv a{
+	color:#555;
+	text-decoration: none;
+}
+</style>
+
+<!-- SAPE RTB JS -->
+<script
+    async="async"
+    src="//cdn-rtb.sape.ru/rtb-b/js/050/2/21050.js"
+    type="text/javascript">
+</script>
+<!-- SAPE RTB END -->
+
+</head>
+<body onLoad="app()">
+
+	<div class="pure-g-r" id="layout">
+		<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+
+<section class="pure-u" id="menu">
+	<nav class="pure-menu pure-menu-open">
+		<a class="pure-menu-heading" href="/">Pure<br><small>по-русски</small></a>
+		<ul>
+			<li><a href="/base/">Основа</a></li>
+			<li class="pure-menu-selected"><a href="/grids/">Сетки</a></li>
+			<li><a href="/forms/">Формы</a></li>
+			<li><a href="/buttons/">Кнопки</a></li>
+			<li><a href="/tables/">Таблицы</a></li>
+			<li><a href="/menus/">Меню</a></li>
+			<li class="menu-item-divided"><a href="/layouts/">Макеты</a></li>
+			<li><a href="/customize/">Выборочные настройки</a></li>
+			<li><a href="/extend/">Модификации</a></li>
+			<li><a href="http://blog.purecss.io/">Блог проекта Pure</a></li>
+			<li><a href="https://github.com/yui/pure/releases/">Релизы Pure</a></li>
+			<li class="menu-item-divided"><a href="http://yui.github.io/skinbuilder/?mode=pure">Генератор тем для Pure</a></li>
+		</ul>
+	</nav>
+</section>
+
+		<div class="pure-u-1" id="main">
+
+<header class="header">
+	<h1>Сетки</h1>
+	<h2>Полностью настраиваемые и отзывчивые CSS-сетки</h2>
+</header>
+
+
+<div class="content">
+
+	<h2 id="introduction-to-pure-grids" class="content-subhead">Введение в Сетки Pure<a href="#introduction-to-pure-grids" class="content-link"></a></h2>
+
+	<p>
+		Сетки Pure просты в использовании и очень мощны. Всё, что нужно для использования, это усвоить несколько простых правил:
+	</p>
+
+	<dl>
+		<dt>Классы сеток и классы ячеек</dt>
+		<dd>
+			Сетки Pure состоят из двух типов классов: "сеточных классов" (<code>pure-g</code> или <code>pure-g-r</code>) и "классов ячеек" (<code>pure-u</code> или <code>pure-u-*</code>)
+		</dd>
+
+		<dt>Длина ячеек задаётся частями от целого</dt>
+		<dd>
+			Ячейки имеют различтые имена классов, определяющие их длину. Например, <code>pure-u-1-2</code> имеет длину 50% от родительского блока, тогда как <code>pure-u-1-5</code> будет иметь длину 20%.
+		</dd>
+
+		<dt>Все дочернии элементы блока сетки, должны быть ячейками</dt>
+		<dd>
+			Дочерние элементы, содержащиеся внутри элемента с классом <code>pure-g</code>, <em>должны</em> быть ячейками сетки с классами <code>pure-u</code> или <code>pure-u-*</code>.
+		</dd>
+
+		<dt>Контент всегда находится внутри ячеек сетки<dt>
+		<dd>
+			Весь контент, который выводится на страницу - должен находиться внутри ячейки сетки. Это гарантирует, что содержимое будет отображаться на странице правильно.
+		</dd>
+	</dl>
+
+	<aside>
+		<p>
+			При установке свойств <code>font-family</code> в CSS-код своего проекта, не забудьте прочитать раздел <a href="#using-grids-with-custom-fonts">использование сеток Pure со своими шрифтами</a>.
+		</p>
+	</aside>
+
+	<p>
+		Начнем с простого примера. Вот сетка из трёх колонок:
+	</p>
+
+	<pre class="snippet" data-language="html"><code>&lt;body&gt;
+	&lt;div class=&quot;pure-g&quot;&gt;
+		&lt;div class=&quot;pure-u-1-3&quot;&gt;
+			&lt;!--
+			По умолчанию, ячейки сетки не имеют свойств margin/padding.
+			Если вы хотите добавить их, поместите контент внутрь
+			дочернего контейнера и задайте эти свойства ему.
+			--&gt;
+			&lt;p&gt;Треть&lt;/p&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;pure-u-1-3&quot;&gt;
+			&lt;p&gt;Треть&lt;/p&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;pure-u-1-3&quot;&gt;
+			&lt;p&gt;Треть&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/body&gt;</code></pre>
+
+
+	<h2 id="grids-units-sizes" class="content-subhead">Размеры ячеек сеток<a href="#grids-units-sizes" class="content-link"></a></h2>
+
+	<p>
+		Блоки с размерами кратными <b>5</b> и <b>24</b> - составляют базовую сетку. Ниже приведены основные размеры ячеек сеток Pure и значения, какие неоходимо добавить к имени класса <b><code>pure-u-*</code></b>, где <code>*</code> имя ячейки с соответстующим размером из представленных ниже. Например имя класса для блока с длиной 50% от ширины сетки будет <code>pure-u-1-2</code>.
+	</p>
+
+  
+
+	<h3>5-колоночные сетки</h3>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">1-5</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-1-5"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">2-5</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-2-5"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">3-5</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-3-5"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">4-5</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-4-5"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">1</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-1"></div>
+		</div>
+	</div>
+</div>
+
+
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">1-1</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-1-1"></div>
+		</div>
+	</div>
+</div>
+
+
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">5-5</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-5-5"></div>
+		</div>
+	</div>
+</div>
+
+  
+
+	<h3>24-колоночные сетки</h3>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">1-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-1-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">1-12</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-1-12"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">2-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-2-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">3-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-3-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">1-8</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-1-8"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">4-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-4-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">1-6</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-1-6"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">5-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-5-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">1-4</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-1-4"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">6-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-6-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">7-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-7-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">1-3</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-1-3"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">8-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-8-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">3-8</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-3-8"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">9-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-9-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">5-12</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-5-12"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">10-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-10-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">11-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-11-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">1-2</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-1-2"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">12-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-12-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">13-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-13-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">7-12</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-7-12"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">14-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-14-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">5-8</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-5-8"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">15-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-15-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">2-3</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-2-3"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">16-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-16-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">17-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-17-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">3-4</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-3-4"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">18-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-18-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">19-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-19-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">5-6</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-5-6"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">20-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-20-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">7-8</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-7-8"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">21-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-21-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">11-12</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-11-12"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">22-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-22-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">23-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-23-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">1</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-1"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit  pure-g">
+	<div class="grids-unit-width pure-u">1-1</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-1-1"></div>
+		</div>
+	</div>
+</div>
+
+  
+	<div class="grids-unit grids-unit-not-reduced pure-g">
+	<div class="grids-unit-width pure-u">24-24</div>
+	<div class="grids-unit-details pure-u-1">
+		<div class="pure-g">
+			<div class="grids-unit-bar pure-u-24-24"></div>
+		</div>
+	</div>
+</div>
+
+  
+
+	<h3>Выбор размера ячеек</h3>
+	<p>
+		Команда Pure постоянно работает над созданием инструментов для помощи в построении сеток Pure. Первое низкоуровневое рещение, это доступный к использованию уже сегодня, <b><a href="https://github.com/ericf/rework-pure-grids">Pure Grids Rework Plugin</a></b> (этот инструментпредназначен для построения сетоток Pure с заданными параметрами).
+	</p>
+	
+	<p>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- universal-middle-big -->
+		<ins class="adsbygoogle"
+			style="display:inline-block;width:580px;height:400px"
+			data-ad-client="ca-pub-5176284087999478"
+			data-ad-slot="5649918142"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</p>
+
+
+	<h2 id="pure-responsive-grids" class="content-subhead">Сетки Pure для адаптивного дизайа<a href="#pure-responsive-grids" class="content-link"></a></h2>
+
+	<p>
+		Основу адаптивных сеток Pure - задаёт родительский блок. Для него добавляется имя класса <code>pure-g-r</code> (где "r" - значает адаптивность). Вы можете всё время использовать <code>pure-g-r</code> вместо <code>pure-g</code> и всё будетработать, как надо. Все дочернии элементы с классами <code>pure-u-*-*</code>, будут автоматически адаптироаться и сжиматься до 100%-ой ширины блока при изменении размера экрана устройства до <code>767px</code> или меньше.
+	</p>
+
+	<h3>Регулярные сетки против адаптивных</h3>
+
+	<p>
+		Первый сниппет, что приведён ниже, показывает, как адаются регулярные сетки в Pure. Эта сетка неадаптивная. Колонки в ней всегда будут шириной в одну треть от ширины экрана, вне зависимости от его размера. Во втором сниппете имя класса изменено с <code>pure-g</code> на <code>pure-g-r</code>, в результате чего, при изменении размера окна браузера до <code>767px</code> (по умолчанию) и ниже, колонки превращаются в строки и меняют свой размер с одной трети до 100% ширины сетки.
+	</p>
+
+	<pre class="snippet" data-language="html"><code>&lt;div class=&quot;pure-g&quot;&gt;
+
+	&lt;div class=&quot;pure-u-1-3&quot;&gt; ... &lt;/div&gt;
+	&lt;div class=&quot;pure-u-1-3&quot;&gt; ... &lt;/div&gt;
+	&lt;div class=&quot;pure-u-1-3&quot;&gt; ... &lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+
+	<pre class="snippet" data-language="html"><code>&lt;div class=&quot;pure-g-r&quot;&gt;
+
+	&lt;div class=&quot;pure-u-1-3&quot;&gt; ... &lt;/div&gt;
+	&lt;div class=&quot;pure-u-1-3&quot;&gt; ... &lt;/div&gt;
+	&lt;div class=&quot;pure-u-1-3&quot;&gt; ... &lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+
+	<h3>Пример адаптивных сеток Pure</h3>
+
+	<p>
+		Измените размер окна браузера и посмотрие, как будутменять свои размеры ячейки сеток.
+	</p>
+
+	<div class="pure-g-r grid-example">
+	<div class="pure-u-1-2">
+		<div class="l-box">
+			<h3>Быстрый</h3>
+			<p>
+				Библиотека YUI - это легковесное ядро и модульная архитектура, которые делают её быстрой, надёжной и масштабируемой. Используемый разработчиками интерфейсов в компании Yahoo, YUI работает на наиболее популярных в мире сайтах.
+			</p>
+		</div>
+	</div>
+
+	<div class="pure-u-1-2">
+		<div class="l-box">
+			<h3>Полноценный</h3>
+			<p>
+				YUI интуитивно понятеное и хорошо документированое API, позволяет вам работать с DOM и создавать поддерживаемые и производительные приложения для настольных компьютеров, мобильных устройств и серверов.
+			</p>
+		</div>
+	</div>
+
+	<div class="pure-u-1-2">
+		<div class="l-box">
+			<h3>Пригодный для разработки</h3>
+			<p>
+				Постоянно растущее ообщество, тщательно спроектированная архитектура, а также всеобъемлющий набор инструментов, поможет вам, как профессионалу писать код, как для простых веб-страниц, так и для сложных веб-приложений.
+			</p>
+		</div>
+	</div>
+
+	<div class="pure-u-1-2">
+		<div class="l-box">
+			<h3>Свободный и открытый</h3>
+			<p>
+				YUI является бесплатным для всех видов использования и разрабатывается в открытом репозитории на GitHub. Основныех членов команды разработки, всегда можно найти на форумах и IRC-канале #yui на Freenode. Вы всегда можете задатьим вопрос!
+			</p>
+		</div>
+	</div>
+
+	<div class="pure-u-1 l-centered">
+		<img src="http://24.media.tumblr.com/31f24c22894d6d46a7b6f4b0687db9cd/tumblr_mnh0uemhCk1st5lhmo1_1280.jpg"
+			 alt="Пример изображения для адаптивных сеток.">
+	</div>
+
+	<div class="pure-u-2-5">
+		<div class="l-box">
+			<h3>Колонка в 2/5 ширины</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fermentum dui turpis.
+			</p>
+		</div>
+	</div>
+
+	<div class="pure-u-3-5">
+		<div class="l-box">
+			<h3>Колонка в 3/5 ширины</h3>
+			<p>
+				Quisque ac magna eget est porta varius ut eget quam. Curabitur tincidunt gravida nisl.
+			</p>
+
+			<p>
+				Fusce accumsan, sem vitae tempus tempor, nulla lectus interdum felis, eget molestie urna mauris vel elit. Curabitur vel ipsum nulla.
+			</p>
+		</div>
+	</div>
+</div>
+
+
+
+	<h2 id="grids-on-mobile" class="content-subhead">Сетки Pure на на мобильных устройствах<a href="#grids-on-mobile" class="content-link"></a></h2>
+
+	<p>
+		Используйте класс <code>pure-g</code> для элемента-обёртки сетки, вместо <code>pure-g-r</code> и будьте уверены, что ячейки сетки не поменяют своего местоположения на маленьких экранах мобильных устройств. Это хороший способ отображать сетки на небольших экранах, например, телефонов.
+	</p>
+
+	<div class="pure-g grid-example">
+	<div class="pure-u-1-3">
+		<div class="l-box">
+			<h3>Треть</h3>
+			<p>Эта ячейка останется на месте, даже на экранах мобильных устройств.</p>
+		 </div>
+	</div>
+
+	<div class="pure-u-1-3">
+		<div class="l-box">
+			<h3>Треть</h3>
+			<p>Эта ячейка останется на месте, даже на экранах мобильных устройств.</p>
+		 </div>
+	</div>
+
+	<div class="pure-u-1-3">
+		<div class="l-box">
+			<h3>Треть</h3>
+			<p>Эта ячейка останется на месте, даже на экранах мобильных устройств.</p>
+		 </div>
+	</div>
+</div>
+
+
+
+	<h2 id="grid-helper-classes" class="content-subhead">спомогательные классы для сеток Pure<a href="#grid-helper-classes" class="content-link"></a></h2>
+
+	<p>
+		Адаптивные сетки Pure, так же используются совместно со вспомогательными классами, чтобы иметь возможность показывать или скрывать информацию в ячейках при разных размерах экранов.
+	</p>
+
+	<table class="pure-table pure-table-bordered">
+		<thead>
+			<tr>
+				<th>Имена вспомогательных классов</th>
+				<th>Описание</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td><code>pure-hidden-phone</code></td>
+				<td>
+					Содержимое блока с этим классом будет скрыто при размере экрана меньше <code>768px</code>
+				</td>
+			</tr>
+
+			<tr>
+				<td><code>pure-hidden-tablet</code></td>
+				<td>
+					Содержимое блока с этим классом будет скрыто при размерах экранов между <code>768px</code> и <code>979px</code> включительно
+				</td>
+			</tr>
+
+			<tr>
+				<td><code>pure-hidden-desktop</code></td>
+				<td>
+					Содержимое блока с этим классом будет скрыто при размере экрана более <code>980px</code>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<h2 id="applying-padding-and-borders-to-grid-units" class="content-subhead">Применение свойств <code>padding</code> и <code>border</code> к ячейкам сеток Pure<a href="#applying-padding-and-borders-to-grid-units" class="content-link"></a></h2>
+
+	<p>
+		Чтобы применить свойства <code>padding</code> и <code>border</code> для ячейки сеток Pure, есть два варианта. Первый вариант заключается в помещении внутрь блока ячейки контейнера <code>&lt;div&gt;</code> и задания собственного стиля данному дочернему контейнеру:
+	</p>
+
+	<pre class="snippet" data-language="html"><code>&lt;style&gt;
+	.l-box {
+		padding: 1em;
+	}
+&lt;/style&gt;
+
+...
+
+&lt;div class=&quot;pure-g&quot;&gt;
+
+	&lt;div class=&quot;pure-u-1-2&quot;&gt;
+		&lt;div class=&quot;l-box&quot;&gt; ... &lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;div class=&quot;pure-u-1-2&quot;&gt;
+		&lt;div class=&quot;l-box&quot;&gt; ... &lt;/div&gt;
+	&lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+
+	<p>
+		Второй вариант заключается в добавлении границы и отступов непосредственно к стилям ячейки сетки. Это конечно сломает макет, но вы можете легко исправить эту проблему путём добавления правила <code>box-sizing: border-box</code>:
+	</p>
+
+	<pre class="snippet" data-language="html"><code>&lt;style&gt;
+	.pure-g &gt; div {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	.l-box {
+		padding: 1em;
+	}
+&lt;/style&gt;
+
+...
+
+&lt;div class=&quot;pure-g&quot;&gt;
+
+	&lt;div class=&quot;pure-u-1-2 l-box&quot;&gt; ... &lt;/div&gt;
+	&lt;div class=&quot;pure-u-1-2 l-box&quot;&gt; ... &lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+
+	<p>
+		Использование свойства и значения <code>box-sizing: border-box</code> сохранит чистоту макета страницы, но при этом оно имеет два незначительных недостатка. Устаревшие браузеры, такие как IE версии 7 и ниже <a href="http://caniuse.com/#search=box-sizing">не поддерживают</a> свойство <code>box-sizing</code>, и применение этого свойства ко всем ячейкам сетки затруднит возможность сбросить данное значение в дальнейшем. Pure оставляет значение свойства <code>box-sizing</code> по умолчанию равным <code>content-box</code> и оставляет дальнейший выбор за вами.
+	</p>
+
+
+	<h2 id="using-grids-with-custom-fonts" class="content-subhead">Использование собственных шрифтов в ячейках сеток<a href="#using-grids-with-custom-fonts" class="content-link"></a></h2>
+
+	<p>
+		В сетках Pure использется определенный набор шрифтов для обеспечения наибольшей совместимости ОС и браузера, а к ячейкам сетки по умолчанию применено правило <code>font-family: sans-serif;</code> - этот базовый набор шрифтов по умолчанию определён в базовой части Pure (Normalize.css) и применён к элементу <code>&lt;body&gt;</code>. К счастью, и в этом довольно легко убедиться, что ваше значение для свойства <code>font-family</code> также применимо к контенту в сетках Pure. И ели вы хотите изменить шрифт на свой только в блоках сетки, то вместо применения свойства <code>font-family</code> к элементу <code>&lt;body&gt;</code>, примените его к классам сетки, как показано ниже:
+	</p>
+
+	<pre class="snippet" data-language="html"><code>&lt;style&gt;
+/*
+При задании основного шрифта на странице, примените его вместе к стилям для
+ячеек сеток и элементов &#x60;html&#x60;, &#x60;button&#x60;, &#x60;input&#x60;, &#x60;select&#x60;, &#x60;textarea&#x60;. Сетки Pure используют специфичные
+настройки шрифтов, для обеспечения наибольшей соместимости с сочетанием ОС
+и браузера.
+*/
+html, button, input, select, textarea,
+.pure-g [class *= &quot;pure-u&quot;],
+.pure-g-r [class *= &quot;pure-u&quot;] {
+	/* Set your content font stack here: */
+	font-family: Georgia, Times, &quot;Times New Roman&quot;, serif;
+}
+&lt;/style&gt;</code></pre>
+
+
+	<h2 id="want-to-just-use-grids" class="content-subhead">Хотите просто использовать только Сетки?<a href="#want-to-just-use-grids" class="content-link"></a></h2>
+
+	<p>
+		"Сетки", являются частью CSS-фреймворка Pure. Тем не менее, если вы просто хотите использовать один лишь модуль для работы с "Сетками", вы можете подключить его отдельно. Просто встаьте элемент <code>&lt;link&gt;</code> в <code>&lt;head&gt;</code> вашей страницы:
+	</p>
+
+  <pre class="snippet" data-language="html"><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;http://yui.yahooapis.com/pure/0.4.2/grids-min.css&quot;&gt;</code></pre>
+
+	<aside>
+		<p>
+			При желании, вы можете использовать генератор сеток <a href="http://yui.github.io/gridbuilder/">Grid Builder</a>, чтобы создать свою собстенную сетку с нестандартными для Pure параметрами ширины столбцов и поведением. Сохраните сгенерированный CSS-код в файл, и подключите его к своему проекту!
+		</p>
+	</aside>
+
+</div>
+
+<div class="content">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Pure-bottom -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5176284087999478"
+		data-ad-slot="3659884947"
+		data-ad-format="auto"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+
+<footer class="legal pure-g-r">
+	<section class="pure-u-2-5">
+		<section class="l-box">
+			<p class="legal-license">
+				Сайт создан с использованием Pure v0.4.2<br>
+				Весь код на этом сайте распространяется под лицензией <a href="http://yuilibrary.com/license/">BSD License</a>, если не указано иное.
+			</p>
+		</section>
+	</section>
+
+	<section class="pure-u-1-5">
+		<section class="l-box legal-logo">
+			<a href="http://yuilibrary.com/">
+				<img src="http://i.imgur.com/XQ8mrUH.png" height="30" width="65" alt="YUI logo">
+			</a>
+		</section>
+	</section>
+
+	<section class="pure-u-2-5">
+		<section class="l-box">
+			<ul class="legal-links">
+				<li><a href="https://github.com/yui/pure/">GitHub Project</a></li>
+			</ul>
+
+			<p class="legal-copyright">
+				&copy; 2014 <a href="/">Pure-css.ru</a>
+			</p>
+		</section>
+	</section>
+</footer>
+
+
+		</div>
+	</div>
+
+<!-- SAPE RTB DIV 240x400 -->
+<div id="SRTB_52832"></div>
+<!-- SAPE RTB END -->
+
+<script src="http://static.tumblr.com/wqzcm1o/dT9n0kkkl/pure.js"></script>
+
+<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter23924128 = new Ya.Metrika({id:23924128, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/23924128" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73037308-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

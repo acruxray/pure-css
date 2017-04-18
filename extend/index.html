@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Модификации &ndash; Pure</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Надстройки для Pure.">
+<link rel="shortcut icon" href="http://i.imgur.com/t2flrXU.png">
+<link rel="stylesheet" href="http://static.tumblr.com/8v23bro/sahn1njis/pure.css">
+<style type="text/css">
+.adv{
+	margin: 1.3em 0 1em;
+	padding: 1.3em;
+	font-size: 75%;
+	letter-spacing: 1px;
+	border: 1px solid #eee;
+	color: #999;
+	background: #fafafa;
+}
+
+.adv a{
+	color:#555;
+	text-decoration: none;
+}
+</style>
+
+<!-- SAPE RTB JS -->
+<script
+    async="async"
+    src="//cdn-rtb.sape.ru/rtb-b/js/050/2/21050.js"
+    type="text/javascript">
+</script>
+<!-- SAPE RTB END -->
+
+</head>
+<body onLoad="app()">
+
+	<div class="pure-g-r" id="layout">
+		<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+
+<section class="pure-u" id="menu">
+	<nav class="pure-menu pure-menu-open">
+		<a class="pure-menu-heading" href="/">Pure<br><small>по-русски</small></a>
+		<ul>
+			<li><a href="/base/">Основа</a></li>
+			<li><a href="/grids/">Сетки</a></li>
+			<li><a href="/forms/">Формы</a></li>
+			<li><a href="/buttons/">Кнопки</a></li>
+			<li><a href="/tables/">Таблицы</a></li>
+			<li><a href="/menus/">Меню</a></li>
+			<li class="menu-item-divided"><a href="/layouts/">Макеты</a></li>
+			<li><a href="/customize/">Выборочные настройки</a></li>
+			<li class="pure-menu-selected"><a href="/extend/">Модификации</a></li>
+			<li><a href="http://blog.purecss.io/">Блог проекта Pure</a></li>
+			<li><a href="https://github.com/yui/pure/releases/">Релизы Pure</a></li>
+			<li class="menu-item-divided"><a href="http://yui.github.io/skinbuilder/?mode=pure">Генератор тем для Pure</a></li>
+		</ul>
+	</nav>
+</section>
+
+
+		<div class="pure-u-1" id="main">
+
+<header class="header">
+	<h1>Модификации</h1>
+	<h2>Надстройки для Pure</h2>
+</header>
+
+
+<div class="content">
+
+	<p>
+		Одной из целей при разработке Pure, было сделать его чрезвычайно расширяемым. Подключая Pure и накладывая свой CSS-код поверх него, вы можете быть уверены, что ваш сайт или приложение будет работать в различных браузерах, и выглядеть поистине уникальным. Самое главное, что размер вашего CSS-файла останется очень маленьким, что очень важно для мобильных пользователей и пользователей с медленным интернет-соединением.
+	</p>
+
+	<aside>
+		<p>
+			Для быстрого стартаразработкис Pure - взгляните на некоторые <a href="/layouts/">макеты</a>, построенные на основе Pure.
+		</p>
+	</aside>
+
+
+	<h2 id="style-guide" class="content-subhead">Руководство по стилю<a href="#style-guide" class="content-link"></a></h2>
+
+	<h3>SMACSS как основа</h3>
+	<p>
+		Pure разбивается на ряд адаптивных модулей. С самого начала, <a href="http://smacss.com/">SMACSS</a> был принят в качестве основы для написания CSS Pure. Для тех, кто плохо знаком с SMACSS, вы должны с ним ознакомиться, особенно с разделом <a href="http://smacss.com/book/type-module">модульные правила</a>.
+	</p>
+
+	<h3>Правила для задания имён классов</h3>
+	<p>
+		Одно из главных условий в Pure, это присвоение для каждого модуля стандартного имени класса, для задания общих правил всему модулю, и дополнительных имён классов для задания частных правил для конкретных элементов модуля. Все имена классов начинаются с префикса <code>pure-</code> для предотвращения конфлитов и переопределения стилей. Кроме того, предпочтительно воздерживаться от назначения неосмысленных имён классов. Вместо имени класса <code>pure-form-horizontal</code>, предпочтительно назвать его <code>pure-form-aligned</code>. Это предотвращает тесную связь между именами и стилями классов, и помогает в поддержке кода.
+	</p>
+
+	<p>
+		Например, авайте рассмотрим HTML and CSS-код для <a href="/forms/">формуляра</a>:
+	</p>
+
+	<h4>Формуляр: HTML</h4>
+	<p>
+		Формуляр создаётся путём добавления двух имён классов: <code>pure-form</code> и <code>pure-form-stacked</code>.
+	</p>
+
+<pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form pure-form-stacked&quot;&gt;
+	...
+&lt;/form&gt;</code></pre>
+
+	<h4>Формуляр: CSS</h4>
+	<p>
+		Два класса служат разным целям. Один из них используется в качестве общего селектора в общих групповых правилах для всех форм, а другой определяет специфические правила для формуляра.
+	</p>
+
+<pre class="snippet" data-language="css"><code>/*
+Стандартные праила для форм Pure. Они вкючают правила для стилей
+.pure-form &lt;inputs&gt;, &lt;fieldsets&gt;, and &lt;legends&gt;, а также макетные правила,
+такие, как вертикальное выравнивание.
+*/
+.pure-form { ... }
+
+/*
+Особые правила, которые применяются к формулярам. Они включают в себя правила
+расположения внутри родительского элемента полей ввода &lt;input&gt; и их отображения:
+в форм-факторе логических блоков формуляра.
+*/
+.pure-form-stacked  { ... }</code></pre>
+
+
+	<p>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- universal-middle-big -->
+		<ins class="adsbygoogle"
+			style="display:inline-block;width:580px;height:400px"
+			data-ad-client="ca-pub-5176284087999478"
+			data-ad-slot="5649918142"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</p>
+
+
+	<h2 id="extending-pure" class="content-subhead">Модифицирование Pure<a href="#extending-pure" class="content-link"></a></h2>
+	<p>
+		Когда вы модифицируете или расширяете Pure, рекомендуется следовать следующим правилам. Например, если вы хотите создать новый тип формы, ваш HTML и CSS-код должен выглядеть примерно так:
+	</p>
+
+<pre class="snippet" data-language="html"><code>&lt;form class=&quot;pure-form pure-form-custom&quot;&gt;
+	...
+&lt;/form&gt;</code></pre>
+
+<pre class="snippet" data-language="css"><code>/* добавьте свои правила в этот селектор */
+.pure-form-custom { ... }</code></pre>
+
+	<p>
+		Одна из распространённых задач, которую вы можете решать - создания уникального стиля для кнопок. В <a href="/buttons/">документации по кнопкам Pure</a> имеется несколько примеров того, как можно создать кнопки с нестандартным размером и стилем, используя модульную архитектуру.
+	</p>
+
+	<h2 id="using-the-skin-builder" class="content-subhead">Использование Skin Builder<a href="#using-the-skin-builder" class="content-link"></a></h2>
+
+	<p>
+		<a href="http://yui.github.io/skinbuilder/?mode=pure">Skin Builder</a> - это инструмент, дающий отличную возможность настроить внешний вид Pure без написания CSS-кода. Просто выберите один цвет, и смотрите, как Skin Builder творит волшебство, изменяя дизайн всех компонентов Pure. Вы можете скопировать и вставить сгенерированный CSS-код в CSS-файл и быстро приступить к работе.
+	</p>
+
+	<p>
+		<a class="pure-button" href="http://yui.github.io/skinbuilder/?mode=pure">Запустить Skin Builder</a>
+	</p>
+
+
+	<h2 id="pure-bootstrap-javascript" class="content-subhead">Pure + Bootstrap + JavaScript<a href="#pure-bootstrap-javascript" class="content-link"></a></h2>
+
+	<p>
+		Pure хорошо интегрируется с другими библиотеками, в том числе Bootstrap и jQuery. Как разработчик, вы можете подключить Pure, как основной CSS-фреймворк, а затем подключить конкретные модули Bootstrap или jQuery, которые могут потребоваться для вашего приложения. Это даст вам несколько преимуществ:
+	</p>
+
+	<ul>
+		<li>
+			<p>
+				Css-код вашего веб-сайта или веб-приложения будет намного меньше - в 5 раз  некоторых случаях!
+			</p>
+		</li>
+		<li>
+			<p>
+				Вы получаете минималистский код Pure, что позволит легко поключить его, как независимую основу дизайна страницы. Нет необходимости переписывать прочии CSS-стили!
+			</p>
+		</li>
+		<li>
+			<p>
+				Вы можете воспользоваться окружением Bootstrap без необходимости подключения и загрузки всей библиотеки.
+			</p>
+		</li>
+	</ul>
+
+	<p>
+		Например, вот модульное окно от Bootstrap. Оно создаётся путем подключения библиотеки Pure, модуля <a href="/css/bootstrap/modal.css"><code>modal.css</code></a> от Bootstrap вместе и использования плагина Jquery.
+	</p>
+
+	<!-- Button to trigger modal -->
+<p>
+	<a href="#myModal" role="button" class="pure-button pure-button-primary" data-toggle="modal">
+		Запуск Pure и модального окна Bootstrap
+	</a>
+</p>
+
+<!-- Modal -->
+<!--
+ * Bootstrap v2.3.2
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<h1 id="myModalLabel">Модальное окно Bootstrap и Pure</h1>
+	</div>
+
+	<div class="modal-body">
+		<p>
+			Это модальное окно запускается благодаря модулям <code>modal.css</code> и <code>modal.js</code> из библиотеки Bootstrap, и подключению библиотеки Pure, для задания низкоуровневых силей. Результатом является полностью функциональное модальное окно с минимальным использованием CSS-кода.
+		</p>
+
+		<form class="pure-form pure-form-stacked">
+			<legend>Формуляр</legend>
+
+			<label for="email">Email</label>
+			<input id="email" type="text" placeholder="Email">
+
+			<label for="password">Пароль</label>
+			<input id="password" type="password" placeholder="Пароль">
+
+			<label for="state">Страна</label>
+			<select id="state">
+				<option>AL</option>
+				<option>CA</option>
+				<option>IL</option>
+			</select>
+
+			<label class="pure-checkbox">
+				<input type="checkbox"> Запомнить меня
+			</label>
+		</form>
+	</div>
+
+	<div class="modal-footer">
+		<button class="pure-button" data-dismiss="modal" aria-hidden="true">Закрыть</button>
+		<button class="pure-button pure-button-primary">Отправить</button>
+	</div>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+
+
+</div>
+
+<div class="content">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Pure-bottom -->
+	<ins class="adsbygoogle"
+		style="display:block"
+		data-ad-client="ca-pub-5176284087999478"
+		data-ad-slot="3659884947"
+		data-ad-format="auto"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+
+<footer class="legal pure-g-r">
+	<section class="pure-u-2-5">
+		<section class="l-box">
+			<p class="legal-license">
+				Сайт создан с использованием Pure v0.4.2<br>
+				Весь код на этом сайте распространяется под лицензией <a href="http://yuilibrary.com/license/">BSD License</a>, если не указано иное.
+			</p>
+		</section>
+	</section>
+
+	<section class="pure-u-1-5">
+		<section class="l-box legal-logo">
+			<a href="http://yuilibrary.com/">
+				<img src="http://i.imgur.com/XQ8mrUH.png" height="30" width="65" alt="YUI logo">
+			</a>
+		</section>
+	</section>
+
+	<section class="pure-u-2-5">
+		<section class="l-box">
+			<ul class="legal-links">
+				<li><a href="https://github.com/yui/pure/">GitHub Project</a></li>
+			</ul>
+
+			<p class="legal-copyright">
+				&copy; 2014 <a href="/">Pure-css.ru</a>
+			</p>
+		</section>
+	</section>
+</footer>
+
+
+		</div>
+	</div>
+
+<!-- SAPE RTB DIV 240x400 -->
+<div id="SRTB_52832"></div>
+<!-- SAPE RTB END -->
+
+<script src="http://static.tumblr.com/wqzcm1o/dT9n0kkkl/pure.js"></script>
+
+<!-- Yandex.Metrika counter --><script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter23924128 = new Ya.Metrika({id:23924128, clickmap:true, trackLinks:true, accurateTrackBounce:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/23924128" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73037308-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
