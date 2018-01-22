@@ -4,4 +4,4 @@ This is translate into russian the site of Pure css framework: [purecss.io](http
 
 ## Resource
 
-To view the translation of Pure docs visit [pure-css.ru](http://pure-css.ru/).
+To view the translation of Pure docs visit [pure-css.itanalytics.info](http://pure-css.itanalytics.info/).
